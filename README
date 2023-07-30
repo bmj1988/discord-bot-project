@@ -1,0 +1,10 @@
+Version 0.02
+    Can use Discord API with limited functions
+    Can access chatgpt through discord and console
+Working on:
+    MDN searches
+    Slack access
+Future features:
+    user profiles, keep open conversation records with chatgpt
+    Search engine access
+    clean up code, place parts in different modules.
