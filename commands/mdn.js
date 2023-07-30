@@ -1,5 +1,11 @@
 const axios = require('axios')
+const {SlashCommandBuilder} = require('discord.js')
+
 module.exports = {
+    data: new SlashCommandBuilder()
+    .setName('mdn')
+    .setDescription('MDN Search'),
+
     category: "Search",
     description: 'Searches official MDN documention',
 

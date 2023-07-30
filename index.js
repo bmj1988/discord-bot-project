@@ -1,13 +1,15 @@
 const {Configuration, OpenAIApi } = require("openai");
 const dotenv = require('dotenv');
 dotenv.config();
-const Discord = require('discord.js');
-const client = new Discord.Client();
+const {Client, Events, GatewayIntentBits} = require('discord.js');
+const client = new Client({intents: [GatewayIntentBits.Guilds, GatewayIntentBits.DirectMessageTyping, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMessageTyping]
+});
 const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration)
-const MDNSearch = require('./commands/mdn.js')
+// const MDNSearch = require('./commands/mdn.js')
+const ping = require('./commands/ping.js')
 
 //chatgpt client section
 
@@ -42,7 +44,7 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.on('message', incoming)
+client.on('messageCreate', incoming)
     function incoming (msg) {
     if (msg.content === 'hi') {
         msg.channel.send('hi there' + msg.content);
